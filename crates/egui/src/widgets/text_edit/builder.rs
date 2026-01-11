@@ -440,7 +440,10 @@ impl TextEdit<'_> {
                         frame_rect,
                         visuals.corner_radius,
                         background_color,
-                        ui.visuals().selection.stroke,
+                        // We don't use selection's stroke so we can finally make
+                        // a border-less textedit.
+                        visuals.bg_stroke,
+                        // ui.visuals().selection.stroke,
                         StrokeKind::Inside,
                     )
                 } else {
